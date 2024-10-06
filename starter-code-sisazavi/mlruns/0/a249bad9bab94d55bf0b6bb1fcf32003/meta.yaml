@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/simon/OneDrive%20-%20andrew.cmu.edu/Classes/Fall_2024/Operationalizing%20AI/FinalProject/94879-starter-code-Team-Project/mlruns/0/a249bad9bab94d55bf0b6bb1fcf32003/artifacts
+end_time: 1728073140823
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a249bad9bab94d55bf0b6bb1fcf32003
+run_name: gifted-calf-108
+run_uuid: a249bad9bab94d55bf0b6bb1fcf32003
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1728073128071
+status: 3
+tags: []
+user_id: simon

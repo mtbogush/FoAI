@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/simon/OneDrive%20-%20andrew.cmu.edu/Classes/Fall_2024/Operationalizing%20AI/FinalProject/94879-starter-code-Team-Project/mlruns/0/f92775241ffa47ec847c9122ac3bc85a/artifacts
+end_time: 1728069108518
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f92775241ffa47ec847c9122ac3bc85a
+run_name: smiling-skunk-211
+run_uuid: f92775241ffa47ec847c9122ac3bc85a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1728069091303
+status: 3
+tags: []
+user_id: simon

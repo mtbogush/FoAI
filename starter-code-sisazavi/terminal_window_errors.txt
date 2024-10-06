@@ -1,0 +1,435 @@
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker container run -d -p 3000:5000 team1-traffic-prediction-app-test      
+df6593094b63dc599b5b6f20681991ebc3f0da0b9815d8b9b4edc57a524da839
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker logs df6593094b63dc599b5b6f20681991ebc3f0da0b9815d8b9b4edc57a524da839
+2024-10-05 00:11:01.174194: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2024-10-05 00:11:01.174236: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2024-10-05 00:11:02.538866: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2024-10-05 00:11:02.538912: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2024-10-05 00:11:02.539369: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (df6593094b63): /proc/driver/nvidia/version does not exist
+Traceback (most recent call last):
+  File "/app/starter_notebook_phase_2.py", line 15, in <module>
+    model = load_model()  # Replace 'lstm_model.h5' with the appropriate model file
+  File "/app/starter_notebook_phase_2.py", line 11, in load_model
+    return tf.keras.models.load_model(model_name)
+  File "/usr/local/lib/python3.9/site-packages/keras/saving/save.py", line 200, in load_model
+    return hdf5_format.load_model_from_hdf5(filepath, custom_objects,
+  File "/usr/local/lib/python3.9/site-packages/keras/saving/hdf5_format.py", line 180, in load_model_from_hdf5
+    model = model_config_lib.model_from_config(model_config,
+  File "/usr/local/lib/python3.9/site-packages/keras/saving/model_config.py", line 52, in model_from_config
+    return deserialize(config, custom_objects=custom_objects)
+  File "/usr/local/lib/python3.9/site-packages/keras/layers/serialization.py", line 208, in deserialize
+    return generic_utils.deserialize_keras_object(
+  File "/usr/local/lib/python3.9/site-packages/keras/utils/generic_utils.py", line 674, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+  File "/usr/local/lib/python3.9/site-packages/keras/engine/sequential.py", line 430, in from_config
+    model = cls(name=name)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/training/tracking/base.py", line 530, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/keras/engine/sequential.py", line 107, in __init__
+    super(functional.Functional, self).__init__(  # pylint: disable=bad-super-call
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/training/tracking/base.py", line 530, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/keras/engine/training.py", line 289, in __init__
+    self._init_batch_counters()
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/training/tracking/base.py", line 530, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/keras/engine/training.py", line 297, in _init_batch_counters
+    self._train_counter = tf.Variable(0, dtype='int64', aggregation=agg)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/variables.py", line 268, in __call__
+    return cls._variable_v2_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/variables.py", line 250, in _variable_v2_call
+    return previous_getter(
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/variables.py", line 243, in <lambda>
+    previous_getter = lambda **kws: default_variable_creator_v2(None, **kws)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/variable_scope.py", line 2662, in default_variable_creator_v2
+    return resource_variable_ops.ResourceVariable(
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/variables.py", line 270, in __call__
+    return super(VariableMetaclass, cls).__call__(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/resource_variable_ops.py", line 1602, in __init__
+    self._init_from_args(
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/resource_variable_ops.py", line 1745, in _init_from_args
+    initial_value = ops.convert_to_tensor(initial_value,
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/profiler/trace.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/ops.py", line 1566, in convert_to_tensor
+    ret = conversion_func(value, dtype=dtype, name=name, as_ref=as_ref)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/tensor_conversion_registry.py", line 52, in _default_conversion_function
+    return constant_op.constant(value, dtype, name=name)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/constant_op.py", line 271, in constant
+    return _constant_impl(value, dtype, shape, name, verify_shape=False,
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/constant_op.py", line 283, in _constant_impl
+    return _constant_eager_impl(ctx, value, dtype, shape, verify_shape)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/constant_op.py", line 308, in _constant_eager_impl
+    t = convert_to_eager_tensor(value, ctx, dtype)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/constant_op.py", line 105, in convert_to_eager_tensor
+    ctx.ensure_initialized()
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/eager/context.py", line 536, in ensure_initialized
+    config_str = self.config.SerializeToString()
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/eager/context.py", line 1034, in config
+    config.device_count["CPU"] = 0
+  File "/usr/local/lib/python3.9/site-packages/google/protobuf/internal/containers.py", line 315, in __setitem__
+    raise TypeError(
+TypeError: RepeatedCompositeFieldContainer object does not support item assignment
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> 
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker build -t team1-traffic-prediction-app-test .
+[+] Building 1.2s (12/12) FINISHED                                                                                                                docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                              0.0s
+ => => transferring dockerfile: 862B                                                                                                                              0.0s 
+ => [internal] load metadata for docker.io/library/python:3.9-slim                                                                                                0.9s 
+ => [auth] library/python:pull token for registry-1.docker.io                                                                                                     0.0s
+ => [internal] load .dockerignore                                                                                                                                 0.0s
+ => => transferring context: 2B                                                                                                                                   0.0s 
+ => [1/6] FROM docker.io/library/python:3.9-slim@sha256:49f94609e5a997dc16086a66ac9664591854031d48e375945a9dbf4d1d53abbc                                          0.0s 
+ => => resolve docker.io/library/python:3.9-slim@sha256:49f94609e5a997dc16086a66ac9664591854031d48e375945a9dbf4d1d53abbc                                          0.0s 
+ => [internal] load build context                                                                                                                                 0.1s 
+ => => transferring context: 17.44kB                                                                                                                              0.1s 
+ => CACHED [2/6] WORKDIR /app                                                                                                                                     0.0s 
+ => CACHED [3/6] RUN apt-get update && apt-get install -y     build-essential     libatlas-base-dev     && rm -rf /var/lib/apt/lists/*                            0.0s 
+ => CACHED [4/6] COPY requirements.txt /app/                                                                                                                      0.0s 
+ => CACHED [5/6] RUN pip install --no-cache-dir -r requirements.txt                                                                                               0.0s 
+ => CACHED [6/6] COPY . /app                                                                                                                                      0.0s 
+ => exporting to image                                                                                                                                            0.1s 
+ => => exporting layers                                                                                                                                           0.0s 
+ => => exporting manifest sha256:ecb0919c9cc69393b7cfa72d83940a707c62f5c736e7ef743552cac65df8d54a                                                                 0.0s 
+ => => exporting config sha256:5eeb2b6ecb935a6596edd514395b8a31ee27a6acac0bc5a529af7440b6e6d784                                                                   0.0s 
+ => => exporting attestation manifest sha256:c695f8ebecc72879c4777b5e2a2851af5bbbf4d873209b92503d097d469deb44                                                     0.0s 
+ => => exporting manifest list sha256:c4589655e666ef287eb90fe051f9117761338f6c68fe00c685f2d86dd6f98ec4                                                            0.0s
+ => => naming to docker.io/library/team1-traffic-prediction-app-test:latest                                                                                       0.0s 
+ => => unpacking to docker.io/library/team1-traffic-prediction-app-test:latest                                                                                    0.0s 
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ljgwxahlrk8ybmoke52y0fb04
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker build -t team1-traffic-prediction-app-test .
+[+] Building 0.5s (11/11) FINISHED                                                                                                                docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                              0.0s
+ => => transferring dockerfile: 862B                                                                                                                              0.0s 
+ => [internal] load metadata for docker.io/library/python:3.9-slim                                                                                                0.3s 
+ => [internal] load .dockerignore                                                                                                                                 0.0s
+ => => transferring context: 2B                                                                                                                                   0.0s 
+ => [1/6] FROM docker.io/library/python:3.9-slim@sha256:49f94609e5a997dc16086a66ac9664591854031d48e375945a9dbf4d1d53abbc                                          0.0s 
+ => => resolve docker.io/library/python:3.9-slim@sha256:49f94609e5a997dc16086a66ac9664591854031d48e375945a9dbf4d1d53abbc                                          0.0s 
+ => [internal] load build context                                                                                                                                 0.1s 
+ => => transferring context: 17.21kB                                                                                                                              0.0s 
+ => CACHED [2/6] WORKDIR /app                                                                                                                                     0.0s 
+ => CACHED [3/6] RUN apt-get update && apt-get install -y     build-essential     libatlas-base-dev     && rm -rf /var/lib/apt/lists/*                            0.0s 
+ => CACHED [4/6] COPY requirements.txt /app/                                                                                                                      0.0s 
+ => CACHED [5/6] RUN pip install --no-cache-dir -r requirements.txt                                                                                               0.0s 
+ => CACHED [6/6] COPY . /app                                                                                                                                      0.0s 
+ => exporting to image                                                                                                                                            0.1s 
+ => => exporting layers                                                                                                                                           0.0s 
+ => => exporting manifest sha256:ecb0919c9cc69393b7cfa72d83940a707c62f5c736e7ef743552cac65df8d54a                                                                 0.0s 
+ => => exporting config sha256:5eeb2b6ecb935a6596edd514395b8a31ee27a6acac0bc5a529af7440b6e6d784                                                                   0.0s 
+ => => exporting attestation manifest sha256:ad30ed622da111e0949d93fa45999b946bec3ec855359202bb444ceeb9480078                                                     0.0s 
+ => => exporting manifest list sha256:1e348fcbf7eaabd3c342337c2b4a816f6d74d4293269e1600aff7d4d9d517c2a                                                            0.0s 
+ => => naming to docker.io/library/team1-traffic-prediction-app-test:latest                                                                                       0.0s
+ => => unpacking to docker.io/library/team1-traffic-prediction-app-test:latest                                                                                    0.0s 
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/lechl732k09ajs6483ol8vgdt
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker container run -d -p 3000:5000 team1-traffic-prediction-app
+Unable to find image 'team1-traffic-prediction-app:latest' locally
+docker: Error response from daemon: pull access denied for team1-traffic-prediction-app, repository does not exist or may require 'docker login'.
+See 'docker run --help'.
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker container run -d -p 3000:5000 team1-traffic-prediction-app-test
+1f80af87a8bd131b3a880acd27c6ab722113dac8dd70d16a631fc09e08adf30a
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> 
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker container ls                    
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker build -t team1-traffic-prediction-app-test .                   
+[+] Building 191.7s (12/12) FINISHED                                                                                                              docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                              0.0s
+ => => transferring dockerfile: 921B                                                                                                                              0.0s 
+ => [internal] load metadata for docker.io/library/python:3.9-buster                                                                                              0.9s 
+ => [auth] library/python:pull token for registry-1.docker.io                                                                                                     0.0s 
+ => [internal] load .dockerignore                                                                                                                                 0.0s
+ => => transferring context: 2B                                                                                                                                   0.0s 
+ => [1/6] FROM docker.io/library/python:3.9-buster@sha256:bae5b428ebf32d01a902718b0a58874cbf33d7a4b6a65b7cd7b21d48b0d2e2f1                                       20.0s 
+ => => resolve docker.io/library/python:3.9-buster@sha256:bae5b428ebf32d01a902718b0a58874cbf33d7a4b6a65b7cd7b21d48b0d2e2f1                                        0.0s 
+ => => sha256:b0eda9c97fd4a2d42571513f0c205e1ae4276f12b3700716064327bdd7a93000 2.85MB / 2.85MB                                                                    0.3s 
+ => => sha256:508cf9d1df6776c6d10cd077eb4546b9bf3bb774ed9c6051da6849961ea49fa2 242B / 242B                                                                        0.2s 
+ => => sha256:e4e5f05940354b6c226635bb38623cb858415f00f6f856b25d064a5891f887f8 18.00MB / 18.00MB                                                                  5.6s
+ => => sha256:0ebfe287e9761b9b7dd1703470ff3473a62fe75238f3de01282165f8725968af 6.15MB / 6.15MB                                                                    1.8s
+ => => sha256:a2e1e233599c00054fb839db78b4d42e6f12f36b64280aa62d482a3ad0ad7109 191.88MB / 191.88MB                                                               15.0s 
+ => => sha256:b1e7e053c9f6f57c6d95002167a6d57aed6aacf04dd2f8e681cb4f74a7ca4381 51.87MB / 51.87MB                                                                  8.3s 
+ => => sha256:3b1c264c0ad4598c25048a6dbd3030086cc5c74000e11d04ac27944cb116aabb 17.58MB / 17.58MB                                                                  5.1s
+ => => sha256:ac8bb7e1a32398e26c129ce64e2ddc3e7ec6c34d93424b247f16049f5a91cff4 50.45MB / 50.45MB                                                                  7.3s
+ => => extracting sha256:ac8bb7e1a32398e26c129ce64e2ddc3e7ec6c34d93424b247f16049f5a91cff4                                                                         1.1s
+ => => extracting sha256:3b1c264c0ad4598c25048a6dbd3030086cc5c74000e11d04ac27944cb116aabb                                                                         0.3s
+ => => extracting sha256:b1e7e053c9f6f57c6d95002167a6d57aed6aacf04dd2f8e681cb4f74a7ca4381                                                                         1.1s
+ => => extracting sha256:a2e1e233599c00054fb839db78b4d42e6f12f36b64280aa62d482a3ad0ad7109                                                                         3.8s
+ => => extracting sha256:0ebfe287e9761b9b7dd1703470ff3473a62fe75238f3de01282165f8725968af                                                                         0.2s
+ => => extracting sha256:e4e5f05940354b6c226635bb38623cb858415f00f6f856b25d064a5891f887f8                                                                         0.4s
+ => => extracting sha256:508cf9d1df6776c6d10cd077eb4546b9bf3bb774ed9c6051da6849961ea49fa2                                                                         0.0s
+ => => extracting sha256:b0eda9c97fd4a2d42571513f0c205e1ae4276f12b3700716064327bdd7a93000                                                                         0.1s
+ => [internal] load build context                                                                                                                                 0.0s 
+ => => transferring context: 18.10kB                                                                                                                              0.0s 
+ => [2/6] WORKDIR /app                                                                                                                                            0.6s 
+ => [3/6] RUN apt-get update && apt-get install -y     build-essential     libatlas-base-dev     && rm -rf /var/lib/apt/lists/*                                   9.8s 
+ => [4/6] COPY requirements.txt /app/                                                                                                                             0.1s 
+ => [5/6] RUN pip install --no-cache-dir -r requirements.txt                                                                                                     90.4s 
+ => [6/6] COPY . /app                                                                                                                                             0.3s 
+ => exporting to image                                                                                                                                           68.8s 
+ => => exporting layers                                                                                                                                          55.9s 
+ => => exporting manifest sha256:667d8c823a362f0b3f173ebfb40871bfec19f7e4b2299bf4e4f8c359395286aa                                                                 0.0s 
+ => => exporting config sha256:952ead1918dd439d0578023cbea2d7f5c2ba835b84d6983966dcc4b314534911                                                                   0.0s 
+ => => exporting attestation manifest sha256:334f5100c6ae15383bea8d323968e47823e41bb108e2c86aa19edcef7a4fb77d                                                     0.0s 
+ => => exporting manifest list sha256:bd41ef95c4ded1b3189e055bf2efd45546de1b06aa9136359e79338b1e8fb27f                                                            0.0s 
+ => => naming to docker.io/library/team1-traffic-prediction-app-test:latest                                                                                       0.0s 
+ => => unpacking to docker.io/library/team1-traffic-prediction-app-test:latest                                                                                   12.8s 
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/rgq2rjjpap23lhvfz3e6siy72
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> 
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker container run -d -p 3000:5000 team1-traffic-prediction-app-test
+3dd30c669b184928aa8631aea5e8714e2063b0b839cfcb4f31ad94d943bbffd1
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> 
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker container ls                    
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker logs 3dd30c669b184928aa8631aea5e8714e2063b0b839cfcb4f31ad94d943bbffd1
+Traceback (most recent call last):
+  File "/app/starter_notebook_phase_2.py", line 15, in <module>
+    model = load_model()  # Replace 'lstm_model.h5' with the appropriate model file
+  File "/app/starter_notebook_phase_2.py", line 11, in load_model
+    return tf.keras.models.load_model(model_name)
+  File "/usr/local/lib/python3.9/site-packages/keras/saving/save.py", line 200, in load_model
+    return hdf5_format.load_model_from_hdf5(filepath, custom_objects,
+  File "/usr/local/lib/python3.9/site-packages/keras/saving/hdf5_format.py", line 180, in load_model_from_hdf5
+    model = model_config_lib.model_from_config(model_config,
+  File "/usr/local/lib/python3.9/site-packages/keras/saving/model_config.py", line 52, in model_from_config
+    return deserialize(config, custom_objects=custom_objects)
+  File "/usr/local/lib/python3.9/site-packages/keras/layers/serialization.py", line 208, in deserialize
+    return generic_utils.deserialize_keras_object(
+  File "/usr/local/lib/python3.9/site-packages/keras/utils/generic_utils.py", line 674, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+  File "/usr/local/lib/python3.9/site-packages/keras/engine/sequential.py", line 430, in from_config
+    model = cls(name=name)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/training/tracking/base.py", line 530, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/keras/engine/sequential.py", line 107, in __init__
+    super(functional.Functional, self).__init__(  # pylint: disable=bad-super-call
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/training/tracking/base.py", line 530, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/keras/engine/training.py", line 289, in __init__
+    self._init_batch_counters()
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/training/tracking/base.py", line 530, in _method_wrapper
+    result = method(self, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/keras/engine/training.py", line 297, in _init_batch_counters
+    self._train_counter = tf.Variable(0, dtype='int64', aggregation=agg)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/variables.py", line 268, in __call__
+    return cls._variable_v2_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/variables.py", line 250, in _variable_v2_call
+    return previous_getter(
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/variables.py", line 243, in <lambda>
+    previous_getter = lambda **kws: default_variable_creator_v2(None, **kws)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/variable_scope.py", line 2662, in default_variable_creator_v2
+    return resource_variable_ops.ResourceVariable(
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/variables.py", line 270, in __call__
+    return super(VariableMetaclass, cls).__call__(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/resource_variable_ops.py", line 1602, in __init__
+    self._init_from_args(
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/ops/resource_variable_ops.py", line 1745, in _init_from_args
+    initial_value = ops.convert_to_tensor(initial_value,
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/profiler/trace.py", line 163, in wrapped
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/ops.py", line 1566, in convert_to_tensor
+    ret = conversion_func(value, dtype=dtype, name=name, as_ref=as_ref)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/tensor_conversion_registry.py", line 52, in _default_conversion_function
+    return constant_op.constant(value, dtype, name=name)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/constant_op.py", line 271, in constant
+    return _constant_impl(value, dtype, shape, name, verify_shape=False,
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/constant_op.py", line 283, in _constant_impl
+    return _constant_eager_impl(ctx, value, dtype, shape, verify_shape)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/constant_op.py", line 308, in _constant_eager_impl
+    t = convert_to_eager_tensor(value, ctx, dtype)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/framework/constant_op.py", line 105, in convert_to_eager_tensor
+    ctx.ensure_initialized()
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/eager/context.py", line 536, in ensure_initialized
+    config_str = self.config.SerializeToString()
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/eager/context.py", line 1034, in config
+    config.device_count["CPU"] = 0
+  File "/usr/local/lib/python3.9/site-packages/google/protobuf/internal/containers.py", line 315, in __setitem__
+    raise TypeError(
+TypeError: RepeatedCompositeFieldContainer object does not support item assignment
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> 
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker ps -a                          
+CONTAINER ID   IMAGE                                 COMMAND                  CREATED             STATUS                         PORTS                                 
+                                                                                                 NAMES
+3dd30c669b18   team1-traffic-prediction-app-test     "python starter_note…"   7 minutes ago       Exited (1) 6 minutes ago                                             
+                                                                                                 blissful_tu
+1f80af87a8bd   1e348fcbf7ea                          "python starter_note…"   12 minutes ago      Exited (1) 11 minutes ago                                            
+                                                                                                 epic_snyder
+df6593094b63   c62764f33604                          "python starter_note…"   30 minutes ago      Exited (1) 29 minutes ago                                            
+                                                                                                 keen_mahavira
+524b2b7dfc54   e3bfd7bb4c87                          "python starter_note…"   37 minutes ago      Exited (1) 36 minutes ago                                            
+                                                                                                 dreamy_brown
+43324d9c50a7   cf7e241e84a7                          "python starter_note…"   51 minutes ago      Exited (1) 50 minutes ago                                            
+                                                                                                 great_ride
+76eb3bf27e89   58531d1c2a9b                          "python starter_note…"   About an hour ago   Exited (1) About an hour ago                                         
+                                                                                                 gallant_franklin
+2571ecd7a5f2   gcr.io/k8s-minikube/kicbase:v0.0.45   "/usr/local/bin/entr…"   3 days ago          Exited (255) 4 hours ago       127.0.0.1:32768->22/tcp, 127.0.0.1:32769->2376/tcp, 127.0.0.1:32770->5000/tcp, 127.0.0.1:32771->8443/tcp, 127.0.0.1:32772->32443/tcp   minikube
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker rm 3dd30                        
+3dd30  
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker rm 1f80af
+1f80af
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker rm df659 
+df659
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker rm 524b 
+524b
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker rm 43324
+43324
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker rm 76e  
+76e
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker ps -a    
+CONTAINER ID   IMAGE                                 COMMAND                  CREATED      STATUS                     PORTS                                            
+                                                                                      NAMES
+2571ecd7a5f2   gcr.io/k8s-minikube/kicbase:v0.0.45   "/usr/local/bin/entr…"   3 days ago   Exited (255) 4 hours ago   127.0.0.1:32768->22/tcp, 127.0.0.1:32769->2376/tcp, 127.0.0.1:32770->5000/tcp, 127.0.0.1:32771->8443/tcp, 127.0.0.1:32772->32443/tcp   minikube
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker rm 257
+257
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker ps -a 
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker build -t team1-traffic-prediction-app-test .
+[+] Building 343.5s (12/12) FINISHED                                                                                                              docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                                                              0.0s
+ => => transferring dockerfile: 921B                                                                                                                              0.0s 
+ => [internal] load metadata for docker.io/library/python:3.9-buster                                                                                              1.0s 
+ => [auth] library/python:pull token for registry-1.docker.io                                                                                                     0.0s
+ => [internal] load .dockerignore                                                                                                                                 0.0s
+ => => transferring context: 2B                                                                                                                                   0.0s 
+ => [1/6] FROM docker.io/library/python:3.9-buster@sha256:bae5b428ebf32d01a902718b0a58874cbf33d7a4b6a65b7cd7b21d48b0d2e2f1                                        0.0s 
+ => => resolve docker.io/library/python:3.9-buster@sha256:bae5b428ebf32d01a902718b0a58874cbf33d7a4b6a65b7cd7b21d48b0d2e2f1                                        0.0s 
+ => [internal] load build context                                                                                                                                 0.1s 
+ => => transferring context: 17.44kB                                                                                                                              0.1s 
+ => CACHED [2/6] WORKDIR /app                                                                                                                                     0.0s 
+ => CACHED [3/6] RUN apt-get update && apt-get install -y     build-essential     libatlas-base-dev     && rm -rf /var/lib/apt/lists/*                            0.0s 
+ => [4/6] COPY requirements.txt /app/                                                                                                                             0.0s 
+ => [5/6] RUN pip install --no-cache-dir -r requirements.txt                                                                                                    268.2s
+ => [6/6] COPY . /app                                                                                                                                             0.3s
+ => exporting to image                                                                                                                                           73.5s
+ => => exporting layers                                                                                                                                          56.6s
+ => => exporting manifest sha256:11007d5b5ebc9c4e1838dc9a7a77917519e07c5926569b1c277d7fb75dd7daac                                                                 0.0s
+ => => exporting config sha256:48d85acf4e8e98000291ee105a1d2267f72be17276d5741c006efe8be07f901f                                                                   0.0s
+ => => exporting attestation manifest sha256:ef4dbb4c5a56542f76d6f1c77b8b3d65a2dbccd8dbc290075dbd8b64ecc80d26                                                     0.1s
+ => => exporting manifest list sha256:04d6e3abbc87b5f5764d367e7bfe90dd0599fda85bdf8eb11dd92a9b63691140                                                            0.0s
+ => => naming to docker.io/library/team1-traffic-prediction-app-test:latest                                                                                       0.0s
+ => => unpacking to docker.io/library/team1-traffic-prediction-app-test:latest                                                                                   16.6s 
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/stccnd93ndi8fwgddvs0mf6k7
+
+What's next:
+    View a summary of image vulnerabilities and recommendations → docker scout quickview
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> 
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker container run -d -p 3000:5000 team1-traffic-prediction-app-test
+5e990fe8ec6bd783a701617789e1c1c5ce89b02ecb35837fa659d0bdfe97373e
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> 
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project> docker logs 5e990                      
+Traceback (most recent call last):   
+  File "/app/starter_notebook_phase_2.py", line 15, in <module>
+    model = load_model()  # Replace 'lstm_model.h5' with the appropriate model file
+  File "/app/starter_notebook_phase_2.py", line 11, in load_model
+    return tf.keras.models.load_model(model_name)
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/util/lazy_loader.py", line 62, in __getattr__
+    module = self._load()
+  File "/usr/local/lib/python3.9/site-packages/tensorflow/python/util/lazy_loader.py", line 45, in _load
+    module = importlib.import_module(self.__name__)
+  File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 972, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/usr/local/lib/python3.9/site-packages/keras/__init__.py", line 3, in <module>
+    from keras import __internal__
+  File "/usr/local/lib/python3.9/site-packages/keras/__internal__/__init__.py", line 3, in <module>
+    from keras.__internal__ import backend
+  File "/usr/local/lib/python3.9/site-packages/keras/__internal__/backend/__init__.py", line 3, in <module>
+    from keras.src.backend import _initialize_variables as initialize_variables
+  File "/usr/local/lib/python3.9/site-packages/keras/src/__init__.py", line 21, in <module>
+    from keras.src import applications
+  File "/usr/local/lib/python3.9/site-packages/keras/src/applications/__init__.py", line 18, in <module>
+    from keras.src.applications.convnext import ConvNeXtBase
+  File "/usr/local/lib/python3.9/site-packages/keras/src/applications/convnext.py", line 28, in <module>
+    from keras.src import backend
+  File "/usr/local/lib/python3.9/site-packages/keras/src/backend.py", line 34, in <module>
+    from keras.src.dtensor import dtensor_api as dtensor
+  File "/usr/local/lib/python3.9/site-packages/keras/src/dtensor/__init__.py", line 18, in <module>
+    from tensorflow.compat.v2.experimental import dtensor as dtensor_api
+ImportError: cannot import name 'dtensor' from 'tensorflow.compat.v2.experimental' (/usr/local/lib/python3.9/site-packages/tensorflow/_api/v2/compat/v2/experimental/__init__.py)
+PS C:\Users\simon\OneDrive - andrew.cmu.edu\Classes\Fall_2024\Operationalizing AI\FinalProject\94879-starter-code-Team-Project>
