@@ -1,0 +1,22 @@
+2024-10-04 15:02:38,040 - Building LSTM model with input shape (10, 1)
+2024-10-04 15:02:38,043 - Starting training for LSTM model...
+2024-10-04 15:02:44,496 - Model training complete. MAE: 0.1039155865407694, MSE: 0.013513826753930657, R2: 0.892843694519973
+2024-10-04 15:02:53,670 - LSTM Model - MAE: 0.1039155865407694, MSE: 0.013513826753930657, R2 Score: 0.892843694519973
+2024-10-04 15:11:31,543 - Building GRU model with input shape (10, 1)
+2024-10-04 15:11:31,549 - Starting training for GRU model...
+2024-10-04 15:11:38,475 - Model training complete. MAE: 0.05506742357863889, MSE: 0.0037727892635997093, R2: 0.9700841096897689
+2024-10-04 15:11:48,515 - GRU Model - MAE: 0.05506742357863889, MSE: 0.0037727892635997093, R2 Score: 0.9700841096897689
+2024-10-04 16:17:12,806 - Building GRU model with input shape (10, 1)
+2024-10-04 16:17:12,812 - Starting training for GRU model...
+2024-10-04 16:17:18,750 - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2024-10-04 16:17:19,805 - Model training complete. MAE: 0.043564817329718356, MSE: 0.0024718172911098995, R2: 0.9804000144770285
+2024-10-04 16:17:27,474 - GRU Model - MAE: 0.043564817329718356, MSE: 0.0024718172911098995, R2 Score: 0.9804000144770285
+2024-10-04 16:18:48,246 - Building LSTM model with input shape (10, 1)
+2024-10-04 16:18:48,260 - Starting training for LSTM model...
+2024-10-04 16:18:52,467 - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2024-10-04 16:18:53,206 - Model training complete. MAE: 0.106695423641015, MSE: 0.014204134994904225, R2: 0.8873699762244777
+2024-10-04 16:19:00,823 - LSTM Model - MAE: 0.106695423641015, MSE: 0.014204134994904225, R2 Score: 0.8873699762244777
+2024-10-06 05:17:01,338 - Building LSTM model with input shape (10, 1)
+2024-10-06 05:17:01,352 - Starting training for LSTM model...
+2024-10-06 05:17:04,605 - You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. 
+2024-10-06 05:17:05,124 - Model training complete. MAE: 0.05422381029866564, MSE: 0.004052960713023127, R2: 0.9678625230165148

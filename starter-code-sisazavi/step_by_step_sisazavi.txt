@@ -1,0 +1,36 @@
+# 1. Create a virtua environment from anaconda using pyhton 3.9 (in anaconda prompt)
+conda create --name fops-ai-project python=3.9
+
+# 2. Install packages in the venv (in anaconda prompt)
+conda install Flask==2.0.1 
+conda install Werkzeug==2.0.1 
+conda install tensorflow==2.6.0 
+conda install numpy==1.19.5 
+conda install scikit-learn==0.24.2 
+conda install joblib==1.0.1
+pip install mlflow==1.20.2 
+conda install pandas==1.3.3 
+pip install protobuf==3.18.0  
+
+# 3. Check for conflicts (in anaconda prompt)
+pip check
+
+# 4. Solve suggested conflics until the pip check is succesful
+
+# 5. Install ml-flow following the guide provided in Steps-for-installation-ml-flow
+
+# 6. Run the experiment in the env created (Power Shell terminal)
+python starter-notebook-phase-1-mlflow.py -- retrive errors due to packages conflicts
+
+# 7. Start the MLflow UI (In a different Power Shell terminal to keep it up)
+mlflow ui
+
+# 8. Open your browser and go to http://127.0.0.1:5000
+
+# 9. Create Dockerfile with the required commands to build the image.
+
+# 10. Create docker image image (run from PS on the application drectory)
+docker build -t team1-traffic-prediction-app-test .
+
+# 11. Run container
+docker container run -d -p 3000:5000 team1-traffic-prediction-app-test -- not succesful due to packages compatibiliy
