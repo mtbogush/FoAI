@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traffic-prediction-deployment
+spec:
+  replicas: 2  # Number of pod replicas for scalability
+  selector:
+    matchLabels:
+      app: traffic-prediction-app
+  template:
+    metadata:
+      labels:
+        app: traffic-prediction-app
+    spec:
+      containers:
+      - name: traffic-prediction-container
+        image: mtbogush/model-api:v1
+        ports:
+        - containerPort: 5000  # Port exposed by the container
